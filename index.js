@@ -14,6 +14,7 @@ var logging = require('./logging');
 const Wakeword = require('wakeword');
 const audiotools = require('./audiotools.js');
 const servertools = require('./servertools.js');
+const leds = require('./leds.js');
 const MemoryStream = require('memorystream');
 
 function listen() {
@@ -65,6 +66,7 @@ function listen() {
         logging.addmetric("category", "action", "label", 987654321);
         audiotools.setup(Wakeword, config);
         servertools.setup(Wakeword, config, audiotools, resetlisten);
+        leds.appstarted();
     }
   );
 }
