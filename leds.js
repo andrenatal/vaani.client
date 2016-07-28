@@ -22,9 +22,14 @@ module.exports = {
             idxled++;
             if (idxled < 16){
                 setTimeout(setled, interval, idxled);
-            }
+            } /*else {
+             LedBar.turnOffLeds();
+             setTimeout(setled, interval, 0);
+             } */
         };
+
         setled(0);
+
     },
 
     deviceready: function(){
