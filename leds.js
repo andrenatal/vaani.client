@@ -2,6 +2,8 @@
  * Created by anatal on 7/28/16.
  */
 
+"use strict"
+
 var LedBar = require('nascent-ledbar');
 
 var interval = 250;
@@ -10,12 +12,19 @@ module.exports = {
 
 
     appstarted: function(){
+
+        var idxled = 0;
+        var interval = 50;
         LedBar.turnOffLeds();
-        for (var a=0; a<LedBar.getNumLeds(); ++a) {
-            setInterval(() => {
-                LedBar.setLed(a, 0, 255, 0, 0);
-            }, interval);
-        }
+        const setled = (idxled) => {
+            console.log('idxled', idxled);
+            LedBar.setLed(idxled, 0, 50, 0, 0);
+            idxled++;
+            if (idxled < 16){
+                setTimeout(setled, interval, idxled);
+            }
+        };
+        setled(0);
     },
 
     deviceready: function(){
