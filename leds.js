@@ -11,11 +11,10 @@ module.exports = {
 
     appstarted: function(){
         LedBar.turnOffLeds();
-        const turngreen = (a) => {
-            LedBar.setLed(a, 0, 255, 0, 0);
-        };
         for (var a=0; a<LedBar.getNumLeds(); ++a) {
-            setInterval(turngreen(a), interval);
+            setInterval(() => {
+                LedBar.setLed(a, 0, 255, 0, 0);
+            }, interval);
         }
     },
 
