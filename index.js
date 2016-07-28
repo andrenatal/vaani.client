@@ -14,6 +14,7 @@ var logging = require('./logging');
 const Wakeword = require('./wakeword');
 const audiotools = require('./audiotools.js');
 const servertools = require('./servertools.js');
+const leds = require('./leds.js');
 const MemoryStream = require('memorystream');
 const getMac = require('getmac');
 
@@ -64,7 +65,6 @@ function listen() {
         }
     },
     () => {
-
         getMac.getMac(function(err,macAddress){
             if (err)  console.warn('No Mac');
             logging.setup(macAddress.replace(/:/g,''));
@@ -74,6 +74,7 @@ function listen() {
 
         audiotools.setup(Wakeword, config, logging);
         servertools.setup(Wakeword, config, audiotools, resetlisten, logging);
+        leds.appstarted();
     }
   );
 }
