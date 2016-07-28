@@ -15,7 +15,7 @@ module.exports = {
         var interval = 50;
         LedBar.turnOffLeds();
         const setled = (idxled) => {
-            LedBar.setLed(idxled, 0, 50, 0, 0);
+            LedBar.setLed(idxled, 50, 0, 0);
             idxled++;
             if (idxled < LedBar.getNumLeds()){
                 setTimeout(setled, interval, idxled);
@@ -31,7 +31,7 @@ module.exports = {
     keywordspot: function(){
         LedBar.turnOffLeds();
         for (let i = 0; i < LedBar.getNumLeds(); i++){
-            LedBar.setLed(i, 0, 42, 161, 255);
+            LedBar.setLed(i, 42, 161, 255);
         }
     },
 
