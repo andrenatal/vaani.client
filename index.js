@@ -43,8 +43,8 @@ function listen() {
         let samples;
         // this block is executed just the first time after the kw get spotted per iteration
         if (!streamvad) {
-          leds.deviceready();
-          audiotools.keyworddeteted();
+          leds.keywordspot();
+          audiotools.greeting();
           servertools.connectServer(Wakeword, audiotools);
           streamvad = new MemoryStream();
           wakeTime = Date.now();
@@ -76,7 +76,6 @@ function listen() {
         audiotools.setup(Wakeword, config, logging);
         servertools.setup(Wakeword, config, audiotools, resetlisten, logging);
         leds.deviceready();
-
     }
   );
 }
