@@ -65,8 +65,8 @@ function listen() {
     },
     () => {
         logging.addmetric("category", "action", "label", 987654321);
-        leds.deviceready();
         audiotools.setup(Wakeword, config);
+        leds.deviceready();
         servertools.setup(Wakeword, config, audiotools, resetlisten);
     }
   );
