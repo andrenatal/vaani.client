@@ -10,9 +10,7 @@ var interval = 250;
 
 module.exports = {
 
-
-    appstarted: function(){
-
+    deviceready: function(){
         var idxled = 0;
         var interval = 50;
         LedBar.turnOffLeds();
@@ -20,7 +18,7 @@ module.exports = {
             console.log('idxled', idxled);
             LedBar.setLed(idxled, 0, 50, 0, 0);
             idxled++;
-            if (idxled < 16){
+            if (idxled < LedBar.getNumLeds()){
                 setTimeout(setled, interval, idxled);
             } /*else {
              LedBar.turnOffLeds();
@@ -29,15 +27,13 @@ module.exports = {
         };
 
         setled(0);
-
-    },
-
-    deviceready: function(){
-        LedBar.turnOffLeds();
     },
 
     keyworddeteted: function(){
         LedBar.turnOffLeds();
+        for (let i = 0; i <= LedBar.getNumLeds(); i++){
+            LedBar.setLed(i, 0, 42, 161, 255);
+        }
     },
 
     processing: function(){
