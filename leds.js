@@ -15,7 +15,7 @@ module.exports = {
         var interval = 50;
         LedBar.turnOffLeds();
         const setled = (idxled) => {
-            LedBar.setLed(idxled, 50, 0, 0);
+            LedBar.setLed(idxled, 0, 50, 0);
             idxled++;
             if (idxled < LedBar.getNumLeds()){
                 setTimeout(setled, interval, idxled);
