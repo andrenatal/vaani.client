@@ -30,7 +30,7 @@ module.exports = {
 
     keywordspot: function(){
         LedBar.turnOffLeds();
-        for (let i = 0; i <= LedBar.getNumLeds(); i++){
+        for (let i = 0; i < LedBar.getNumLeds(); i++){
             LedBar.setLed(i, 0, 42, 161, 255);
         }
     },
