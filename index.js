@@ -14,7 +14,7 @@ var logging = require('./logging');
 const Wakeword = require('./wakeword');
 const audiotools = require('./audiotools.js');
 const servertools = require('./servertools.js');
-const leds = require('./leds.js');
+//const leds = require('./leds.js');
 const MemoryStream = require('memorystream');
 const getMac = require('getmac');
 
@@ -43,7 +43,7 @@ function listen() {
         let samples;
         // this block is executed just the first time after the kw get spotted per iteration
         if (!streamvad) {
-          leds.keywordspot();
+          //leds.keywordspot();
           audiotools.greeting();
           servertools.connectServer(Wakeword, audiotools);
           streamvad = new MemoryStream();
