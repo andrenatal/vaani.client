@@ -13,7 +13,7 @@ var dtStartSilence, totalSilencetime;
 module.exports =  {
 
     /**
-     * Holds a reference for the microphone.
+     * Holds a reference to the microphone.
      */
     microphone: null,
 
