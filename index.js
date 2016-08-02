@@ -40,7 +40,7 @@ function listen() {
   Wakeword.listen([config.wakeword], config.kwscore, (data, word) => {
 
         let samples;
-        // this block is executed just the first time after the kw get spotted per iteration
+        // this block is executed only the first time after the kw get spotted per iteration
         if (!streamvad) {
           //leds.keywordspot();
           audiotools.greeting();

@@ -13,7 +13,7 @@ var dtStartSilence, totalSilencetime;
 module.exports =  {
 
     /**
-     * Holds a reference for the microphone.
+     * Holds a reference to the microphone.
      */
     microphone: null,
 
@@ -45,9 +45,6 @@ module.exports =  {
         this.microphone.pause();
         this.playaudio('resources/start.wav');
         this.microphone.resume();
-
-
-
     },
 
     playaudio: function(path){

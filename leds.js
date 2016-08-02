@@ -6,8 +6,6 @@
 
 var LedBar = require('nascent-ledbar');
 
-var interval = 250;
-
 module.exports = {
 
     deviceready: function(){
