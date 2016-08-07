@@ -3,17 +3,18 @@
  */
 
 const child_process = require('child_process');
-const shelloutAsync = (command, params) => child_process.spawn(command, params.split(' '));
+
+var _child_process;
+
+const shelloutAsync = (command, params) => {
+    if (_child_process) _child_process.kill();
+    _child_process = child_process.spawn(command, params.split(' '));
+}
 
 module.exports = {
 
-    keywordspot: function () {
-        shelloutAsync('node', 'leds.js --processing');
-    },
-
     processing: function () {
         shelloutAsync('node', 'leds.js --processing');
-
     },
 
     deviceready: function () {
