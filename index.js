@@ -63,7 +63,7 @@ function listen() {
           audiotools.endsound();
           resetlisten();
           servertools.endStreamToServer();
-          logging.addmetric("userspeech", "end", "ok", 1);
+          //logging.addmetric("userspeech", "end", "ok", 1);
         }
     },
     () => {

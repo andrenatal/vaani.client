@@ -47,7 +47,7 @@ module.exports = {
                 LedBar.setLed(idxled, 0, 0, 0, 0);
                 idxled--;
             } else {
-                LedBar.setLed(idxled, 0, 50, 0, 0);
+                LedBar.setLed(idxled, 34, 129, 204, 0);
                 idxled++;
             }
             if (idxled < 16){
