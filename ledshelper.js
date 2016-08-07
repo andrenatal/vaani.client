@@ -5,21 +5,29 @@
 const child_process = require('child_process');
 
 
-const shelloutAsync = (command, params) => child_process.spawn(command, params.split(' '));
+const shelloutAsync = (command, params) => child_process.fork(command, params.split(' '));
 
 module.exports = {
 
     keywordspot: function () {
-        shelloutAsync('node', 'leds.js --processing');
+        shelloutAsync('leds.js --processing');
     },
 
     processing: function () {
-        shelloutAsync('node', 'leds.js --processing');
+        shelloutAsync('leds.js --processing');
 
     },
 
     deviceready: function () {
-        shelloutAsync('node', 'leds.js --deviceready');
-    }
+        shelloutAsync('leds.js --deviceready');
+    },
+
+    response: function () {
+        shelloutAsync('leds.js --response');
+    },
+
+    listening: function () {
+        shelloutAsync('leds.js --listening');
+    },
 }
 
