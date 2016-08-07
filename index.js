@@ -67,16 +67,20 @@ function listen() {
     },
     () => {
 
+        const logboot = () => {
+            getMac.getMac(function(err,macAddress){
+                if (err)  console.warn('No Mac');
+                logging.setup(macAddress.replace(/:/g,''));
+                logging.addmetric("boot", "sucessfull", "ok", 1);
+                Wakeword.logging = logging;
+            });
+        };
+
         audiotools.setup(Wakeword, config, logging);
         servertools.setup(Wakeword, config, audiotools, resetlisten, logging);
-        leds.deviceready();
+        leds.deviceready(logboot);
 
-        getMac.getMac(function(err,macAddress){
-            if (err)  console.warn('No Mac');
-            logging.setup(macAddress.replace(/:/g,''));
-            logging.addmetric("boot", "sucessfull", "ok", 1);
-            Wakeword.logging = logging;
-        });
+
     }
   );
 }

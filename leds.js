@@ -8,15 +8,17 @@ var LedBar = require('nascent-ledbar');
 
 module.exports = {
 
-    deviceready: function(){
+    deviceready: function(cb){
         var idxled = 0;
-        var interval = 10;
+        var interval = 50;
         LedBar.turnOffLeds();
         const setled = (idxled) => {
             LedBar.setLed(idxled, 0, 50, 0);
             idxled++;
             if (idxled < LedBar.getNumLeds()){
                 setTimeout(setled, interval, idxled);
+            } else {
+                cb();
             } /*else {
              LedBar.turnOffLeds();
              setTimeout(setled, interval, 0);
