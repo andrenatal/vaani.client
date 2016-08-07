@@ -27,6 +27,8 @@
     "mic": "2.0.1",
     "pocketsphinx": "5.0.5",
     "which": "1.2.9",
-    "getmac": "1.2.1"
+    "getmac": "1.2.1",
+    "nascent-ledbar": "https://github.com/mozilla/nascent-ledbar",
+    "mraa" : "1.2.1"
   }
 }
