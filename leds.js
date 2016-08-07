@@ -10,7 +10,7 @@ module.exports = {
 
     deviceready: function(){
         var idxled = 0;
-        var interval = 50;
+        var interval = 10;
         LedBar.turnOffLeds();
         const setled = (idxled) => {
             LedBar.setLed(idxled, 0, 50, 0);

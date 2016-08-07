@@ -18,6 +18,9 @@
     "url": "https://github.com/mozilla/vaani.client/issues"
   },
   "homepage": "https://github.com/mozilla/vaani.client#readme",
+  "optionalDependencies": {
+    "mraa" : "1.1.2"
+  },
   "dependencies": {
     "url": "^0.11.0",
     "memorystream": "0.3.1",
@@ -28,7 +31,6 @@
     "pocketsphinx": "5.0.5",
     "which": "1.2.9",
     "getmac": "1.2.1",
-    "nascent-ledbar": "https://github.com/mozilla/nascent-ledbar",
-    "mraa" : "1.1.2"
+    "nascent-ledbar": "https://github.com/mozilla/nascent-ledbar"
   }
 }
