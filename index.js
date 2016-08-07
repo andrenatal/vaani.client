@@ -59,7 +59,6 @@ function listen() {
         }
 
         if ((Date.now() - wakeTime > config.MAX_LISTEN_TIME) || (secsSilence >=  config.MAX_SIL_TIME) || abort) {
-          leds.processing();
           audiotools.endsound();
           resetlisten();
           servertools.endStreamToServer();
