@@ -59,6 +59,7 @@ function listen() {
         }
 
         if ((Date.now() - wakeTime > config.MAX_LISTEN_TIME) || (secsSilence >=  config.MAX_SIL_TIME) || abort) {
+          leds.processing();
           audiotools.endsound();
           resetlisten();
           servertools.endStreamToServer();
@@ -79,8 +80,6 @@ function listen() {
         audiotools.setup(Wakeword, config, logging);
         servertools.setup(Wakeword, config, audiotools, resetlisten, logging);
         leds.deviceready(logboot);
-
-
     }
   );
 }
