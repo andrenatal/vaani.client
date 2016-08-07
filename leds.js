@@ -25,14 +25,8 @@ program
             idxled++;
             if (idxled < LedBar.getNumLeds()){
                 setTimeout(setled, interval, idxled);
-            } else {
-                cb();
-            } /*else {
-             LedBar.turnOffLeds();
-             setTimeout(setled, interval, 0);
-             } */
+            }
         };
-
         setled(0);
     };
 
@@ -50,7 +44,6 @@ program
         var interval = 50;
         LedBar.turnOffLeds();
         const setled = (idxled) => {
-            console.log('idxled', idxled);
             if (inverted){
                 LedBar.setLed(idxled, 0, 0, 0, 0);
                 idxled--;
