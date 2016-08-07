@@ -3,33 +3,33 @@
  */
 
 const child_process = require('child_process');
-const shelloutAsync = (command, params) => child_process.fork(command, params.split(' '));
+const shelloutAsync = (command, params) => child_process.spawn(command, params.split(' '));
 
 module.exports = {
 
     keywordspot: function () {
-        shelloutAsync('leds.js --processing');
+        shelloutAsync('node.js', 'leds.js --processing');
     },
 
     processing: function () {
-        shelloutAsync('leds.js --processing');
+        shelloutAsync('node.js', 'leds.js --processing');
 
     },
 
     deviceready: function () {
-        shelloutAsync('leds.js --deviceready');
+        shelloutAsync('node.js', 'leds.js --deviceready');
     },
 
     response: function () {
-        shelloutAsync('leds.js --response');
+        shelloutAsync('node.js', 'leds.js --response');
     },
 
     listening: function () {
-        shelloutAsync('leds.js --listening');
+        shelloutAsync('node.js', 'leds.js --listening');
     },
 
     error: function () {
-        shelloutAsync('leds.js --error');
+        shelloutAsync('node.js', 'leds.js --error');
     },
 }
 
