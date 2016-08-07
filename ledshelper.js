@@ -8,28 +8,28 @@ const shelloutAsync = (command, params) => child_process.spawn(command, params.s
 module.exports = {
 
     keywordspot: function () {
-        shelloutAsync('node.js', 'leds.js --processing');
+        shelloutAsync('node', 'leds.js --processing');
     },
 
     processing: function () {
-        shelloutAsync('node.js', 'leds.js --processing');
+        shelloutAsync('node', 'leds.js --processing');
 
     },
 
     deviceready: function () {
-        shelloutAsync('node.js', 'leds.js --deviceready');
+        shelloutAsync('node', 'leds.js --deviceready');
     },
 
     response: function () {
-        shelloutAsync('node.js', 'leds.js --response');
+        shelloutAsync('node', 'leds.js --response');
     },
 
     listening: function () {
-        shelloutAsync('node.js', 'leds.js --listening');
+        shelloutAsync('node', 'leds.js --listening');
     },
 
     error: function () {
-        shelloutAsync('node.js', 'leds.js --error');
+        shelloutAsync('node', 'leds.js --error');
     },
 }
 
