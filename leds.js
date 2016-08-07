@@ -13,6 +13,7 @@ program
     .option('--processing', 'Show Processing')
     .option('--response', 'Show response')
     .option('--listening', 'Show listening')
+    .option('--error', 'Show Error')
 
     .parse(process.argv);
 
@@ -42,6 +43,13 @@ program
         LedBar.turnOffLeds();
         for (let i = 0; i < LedBar.getNumLeds(); i++){
             LedBar.setLed(i, 0, 50, 0);
+        }
+    };
+
+    const error = () => {
+        LedBar.turnOffLeds();
+        for (let i = 0; i < LedBar.getNumLeds(); i++){
+            LedBar.setLed(i, 255, 0, 0);
         }
     };
 
@@ -77,3 +85,4 @@ if (program.deviceready) deviceready();
 if (program.processing) processing();
 if (program.response) playingresponse();
 if (program.listening) listening();
+if (program.error) error();
