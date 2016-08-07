@@ -31,6 +31,7 @@
     "pocketsphinx": "5.0.5",
     "which": "1.2.9",
     "getmac": "1.2.1",
-    "nascent-ledbar": "https://github.com/mozilla/nascent-ledbar"
+    "nascent-ledbar": "https://github.com/mozilla/nascent-ledbar",
+    "commander": "2.9.0"
   }
 }

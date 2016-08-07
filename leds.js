@@ -5,10 +5,18 @@
 "use strict"
 
 var LedBar = require('nascent-ledbar');
+var program = require('commander');
 
-module.exports = {
+program
+    .version('0.0.1')
+    .option('--deviceready', 'Show Device ready')
+    .option('--kws', 'Show Keyword spot')
+    .option('--processing', 'Show Processing')
+    .option('--response', 'Show response')
+    .parse(process.argv);
 
-    deviceready: function(cb){
+
+    const deviceready = () => {
         var idxled = 0;
         var interval = 50;
         LedBar.turnOffLeds();
@@ -26,16 +34,16 @@ module.exports = {
         };
 
         setled(0);
-    },
+    };
 
-    keywordspot: function(){
+    const keywordspot = () => {
         LedBar.turnOffLeds();
         for (let i = 0; i < LedBar.getNumLeds(); i++){
             LedBar.setLed(i, 34, 129, 204);
         }
-    },
+    };
 
-    processing: function(){
+    const processing = () => {
         LedBar.turnOffLeds();
         var idxled = 0;
         var inverted = false;
@@ -61,11 +69,13 @@ module.exports = {
             }
         };
         setled(0);
-    },
+    };
 
-    playingresponse: function(){
+    const playingresponse = () => {
         LedBar.turnOffLeds();
-    }
+    };
 
-}
-
+if (program.deviceready) deviceready();
+if (program.kws) keywordspot();
+if (program.processing) processing();
+if (program.response) playingresponse();
