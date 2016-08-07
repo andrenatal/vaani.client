@@ -10,9 +10,10 @@ var program = require('commander');
 program
     .version('0.0.1')
     .option('--deviceready', 'Show Device ready')
-    .option('--kws', 'Show Keyword spot')
     .option('--processing', 'Show Processing')
     .option('--response', 'Show response')
+    .option('--listening', 'Show listening')
+
     .parse(process.argv);
 
 
@@ -30,10 +31,17 @@ program
         setled(0);
     };
 
-    const keywordspot = () => {
+    const playingresponse = () => {
         LedBar.turnOffLeds();
         for (let i = 0; i < LedBar.getNumLeds(); i++){
             LedBar.setLed(i, 34, 129, 204);
+        }
+    };
+
+    const listening = () => {
+        LedBar.turnOffLeds();
+        for (let i = 0; i < LedBar.getNumLeds(); i++){
+            LedBar.setLed(i, 0, 50, 0);
         }
     };
 
@@ -64,11 +72,8 @@ program
         setled(0);
     };
 
-    const playingresponse = () => {
-        LedBar.turnOffLeds();
-    };
 
 if (program.deviceready) deviceready();
-if (program.kws) keywordspot();
 if (program.processing) processing();
 if (program.response) playingresponse();
+if (program.listening) listening();
