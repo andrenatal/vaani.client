@@ -3,8 +3,6 @@
  */
 
 const child_process = require('child_process');
-
-
 const shelloutAsync = (command, params) => child_process.fork(command, params.split(' '));
 
 module.exports = {
@@ -28,6 +26,10 @@ module.exports = {
 
     listening: function () {
         shelloutAsync('leds.js --listening');
+    },
+
+    error: function () {
+        shelloutAsync('leds.js --error');
     },
 }
 
