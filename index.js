@@ -43,7 +43,7 @@ function listen() {
         let samples;
         // this block is executed only the first time after the kw get spotted per iteration
         if (!streamvad) {
-          leds.keywordspot();
+          leds.processing();
           audiotools.greeting();
           servertools.connectServer(Wakeword, audiotools);
           streamvad = new MemoryStream();
